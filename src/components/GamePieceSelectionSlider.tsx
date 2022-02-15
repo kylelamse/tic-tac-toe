@@ -3,33 +3,50 @@ import GamePiece from "./GamePiece";
 
 import "./GamePieceSelectionSlider.scss";
 
-type players = "X" | "O";
+interface SelectionContainerProps {
+    type: player;
+    selected: player;
+    onClick: () => void;
+}
+
+const SelectionContainer = ({
+    type,
+    onClick,
+    selected,
+}: SelectionContainerProps) => {
+    return (
+        <div
+            onClick={onClick}
+            className={`game_piece_selection_slider_piece_container ${
+                selected === type && "game_piece_selection_slider_selected"
+            }`}
+        >
+            <GamePiece type={type} size="Medium" />
+        </div>
+    );
+};
+
+type player = "X" | "O";
 
 type Props = {};
 const GamePieceSelectionSlider = (props: Props) => {
-    const [selected, setSelected] = useState<players>("O");
+    const [selected, setSelected] = useState<player>("O");
 
     const selectX = () => setSelected("X");
     const selectO = () => setSelected("O");
 
     return (
         <div className="game_piece_selection_slider_container">
-            <div
+            <SelectionContainer
+                type="X"
                 onClick={selectX}
-                className={`game_piece_selection_slider_piece_container ${
-                    selected === "X" && "game_piece_selection_slider_selected"
-                }`}
-            >
-                <GamePiece type="X" size="Medium" />
-            </div>
-            <div
+                selected={selected}
+            />
+            <SelectionContainer
+                type="O"
                 onClick={selectO}
-                className={`game_piece_selection_slider_piece_container ${
-                    selected === "O" && "game_piece_selection_slider_selected"
-                }`}
-            >
-                <GamePiece type="O" size="Medium" />
-            </div>
+                selected={selected}
+            />
         </div>
     );
 };
