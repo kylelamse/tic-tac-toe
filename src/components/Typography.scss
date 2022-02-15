@@ -4,32 +4,36 @@ $font_color: colors.$silver;
 $medium_weight: 500;
 $bold_weight: 700;
 
-.typography_large {
+.typography_container {
     color: $font_color;
+    text-transform: uppercase;
+}
+
+.typography_half_opacity {
+    opacity: 0.5;
+}
+
+.typography_large {
     font-weight: $bold_weight;
     font-size: 2.5rem;
 }
 
 .typography_medium {
-    color: $font_color;
     font-weight: $bold_weight;
     font-size: 1.5rem;
 }
 
 .typography_small {
-    color: $font_color;
     font-weight: $bold_weight;
     font-size: 1.25rem;
 }
 
 .typography_extra_small {
-    color: $font_color;
     font-weight: $bold_weight;
     font-size: 1rem;
 }
 
 .typography_body {
-    color: $font_color;
     font-weight: $medium_weight;
     font-size: 0.875rem;
 }

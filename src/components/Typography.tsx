@@ -4,6 +4,7 @@ import "./Typography.scss";
 type Props = {
     children: string;
     variant: "large" | "medium" | "small" | "extrasmall" | "body";
+    opacity?: "half";
 };
 
 const variantMap = {
@@ -29,11 +30,22 @@ const variantMap = {
     },
 };
 
-const Typograpy = ({ children, variant }: Props) => {
+const getClassName = (className: string, opacity?: string) => {
+    if (opacity === "half") {
+        return `${className} typography_container typography_half_opacity`;
+    }
+    return `${className} typography_container`;
+};
+
+const Typograpy = ({ children, variant, opacity }: Props) => {
     const variantObject = variantMap[variant];
     const { type, className } = variantObject;
 
-    return React.createElement(type, { className }, [children]);
+    return React.createElement(
+        type,
+        { className: getClassName(className, opacity) },
+        [children]
+    );
 };
 
 export default Typograpy;
