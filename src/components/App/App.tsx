@@ -1,7 +1,9 @@
+import "./App.scss";
+
 function App() {
   return (
     <main>
-      <section>
+      <section className="main-section">
         <h1>Hello world!</h1>
       </section>
     </main>
