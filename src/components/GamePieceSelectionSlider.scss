@@ -1,0 +1,8 @@
+@use "styles/_colors";
+
+.game_piece_selection_slider_container {
+    width: 17.5rem;
+    height: 4.5rem;
+    background-color: colors.$dark_navy;
+    border-radius: 0.625rem;
+}
