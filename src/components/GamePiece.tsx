@@ -1,11 +1,15 @@
 import "./GamePiece.scss";
 
 import xIcon from "assets/icon-x.svg";
+import xIconOutline from "assets/icon-x-outline.svg";
 import oIcon from "assets/icon-o.svg";
+import oIconOutline from "assets/icon-o-outline.svg";
 
+type piece = "O" | "X";
 type Props = {
     size: "Large" | "Medium" | "Small";
-    type: "O" | "X";
+    type: piece;
+    outline?: boolean;
 };
 
 const sizeMap = {
@@ -15,8 +19,10 @@ const sizeMap = {
 };
 
 const iconMap = {
-    O: oIcon,
     X: xIcon,
+    X_Outline: xIconOutline,
+    O: oIcon,
+    O_Outline: oIconOutline,
 };
 
 const altMap = {
@@ -24,9 +30,17 @@ const altMap = {
     X: "X Icon",
 };
 
-const GamePiece = ({ type, size }: Props) => {
+const getIcon = (type: piece, outline?: boolean) => {
+    if (outline) {
+        return iconMap[`${type}_Outline`];
+    }
+
+    return iconMap[type];
+};
+
+const GamePiece = ({ type, size, outline }: Props) => {
     const className = sizeMap[size];
-    const icon = iconMap[type];
+    const icon = getIcon(type, outline);
     const alt = altMap[type];
 
     return <img className={className} src={icon} alt={alt} />;
