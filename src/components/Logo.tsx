@@ -1,14 +1,14 @@
-import X from "./X";
-import O from "./O";
+import "./Logo.scss";
+import GamePiece from "components/GamePiece";
 
 type Props = {};
 
 const Logo = (props: Props) => {
     return (
-        <>
-            <X />
-            <O />
-        </>
+        <div className="logo_container">
+            <GamePiece type="X" size="Medium" />
+            <GamePiece type="O" size="Medium" />
+        </div>
     );
 };
 
