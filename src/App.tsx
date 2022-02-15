@@ -1,10 +1,15 @@
 import "./App.scss";
+import Typography from "components/Typography";
 
 function App() {
     return (
         <main>
             <section className="main-section">
-                <h1>Hello world!</h1>
+                <Typography variant="large">Hello World!</Typography>
+                <Typography variant="medium">Hello World!</Typography>
+                <Typography variant="small">Hello World!</Typography>
+                <Typography variant="extrasmall">Hello World!</Typography>
+                <Typography variant="body">Hello World!</Typography>
             </section>
         </main>
     );
