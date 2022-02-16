@@ -6,7 +6,7 @@
     align-items: center;
     height: 12.8rem;
     background-color: colors.$semi_dark_navy;
-    box-shadow: inset 0px -8px 0px #10212a;
+    box-shadow: inset 0px -8px 0px colors.$semi_dark_navy_drop_shadow;
     border-radius: 1rem;
     padding: 1.5rem 1.5rem 1.875rem 1.5rem;
 }
