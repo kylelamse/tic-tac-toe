@@ -17,9 +17,11 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+    cursor: pointer;
 }
 
 .game_piece_selection_slider_selected {
     background-color: colors.$silver;
     border-radius: 0.625rem;
+    transition: background-color 0.5s;
 }
