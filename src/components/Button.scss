@@ -1,0 +1,23 @@
+@use "styles/colors";
+
+.button_primary {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 20.5rem;
+    height: 3.5rem;
+    background-color: colors.$light_yellow;
+    border-radius: 1rem;
+    box-shadow: inset 0px -8px 0px #cc8b13;
+}
+
+.button_secondary {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 20.5rem;
+    height: 3.5rem;
+    background-color: colors.$light_yellow;
+    border-radius: 1rem;
+    box-shadow: inset 0px -8px 0px #118c87;
+}

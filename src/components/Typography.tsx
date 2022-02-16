@@ -1,10 +1,13 @@
 import React from "react";
 import "./Typography.scss";
 
+type colors = "dark_navy";
+
 type Props = {
     children: string;
     variant: "large" | "medium" | "small" | "extrasmall" | "body";
     opacity?: "half";
+    color?: colors;
 };
 
 const variantMap = {
@@ -30,20 +33,19 @@ const variantMap = {
     },
 };
 
-const getClassName = (className: string, opacity?: string) => {
-    if (opacity === "half") {
-        return `${className} typography_container typography_half_opacity`;
-    }
-    return `${className} typography_container`;
+const getClassName = (className: string, opacity?: string, color?: colors) => {
+    return `${className} typography_container ${
+        (opacity === "half" && "typography_half_opacity") || ""
+    }  ${(color && `typography_${color}`) || ""}`;
 };
 
-const Typograpy = ({ children, variant, opacity }: Props) => {
+const Typograpy = ({ children, variant, opacity, color }: Props) => {
     const variantObject = variantMap[variant];
     const { type, className } = variantObject;
 
     return React.createElement(
         type,
-        { className: getClassName(className, opacity) },
+        { className: getClassName(className, opacity, color) },
         [children]
     );
 };

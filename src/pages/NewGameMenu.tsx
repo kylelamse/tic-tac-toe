@@ -1,5 +1,6 @@
 import Logo from "components/Logo";
 import GamePieceSelection from "components/GamePieceSelection";
+import Button from "components/Button";
 
 type Props = {};
 
@@ -8,6 +9,8 @@ const NewGameMenu = (props: Props) => {
         <>
             <Logo />
             <GamePieceSelection />
+            <Button>New Game (VS CPU)</Button>
+            <Button>New Game (VS Player)</Button>
         </>
     );
 };
