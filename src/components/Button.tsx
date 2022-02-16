@@ -2,13 +2,24 @@ import React from "react";
 import Typography from "components/Typography";
 import "./Button.scss";
 
+type variants = "primary" | "secondary";
 type Props = {
     children: string;
+    variant?: variants;
 };
 
-const Button = ({ children }: Props) => {
+const variantMap = {
+    primary: "button_primary",
+    secondary: "button_secondary",
+};
+
+const getClassName = (variant: variants) => {
+    return variantMap[variant];
+};
+
+const Button = ({ children, variant = "primary" }: Props) => {
     return (
-        <div className="button_secondary">
+        <div className={getClassName(variant)}>
             <Typography variant="extrasmall" color="dark_navy">
                 {children}
             </Typography>

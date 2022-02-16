@@ -9,8 +9,8 @@ const NewGameMenu = (props: Props) => {
         <>
             <Logo />
             <GamePieceSelection />
-            <Button>New Game (VS CPU)</Button>
-            <Button>New Game (VS Player)</Button>
+            <Button variant="primary">New Game (VS CPU)</Button>
+            <Button variant="secondary">New Game (VS Player)</Button>
         </>
     );
 };
