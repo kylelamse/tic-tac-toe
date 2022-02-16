@@ -20,6 +20,7 @@
 .button_primary:active {
     transform: translateY(4px);
     background-color: colors.$light_yellow;
+    box-shadow: none;
 }
 
 .button_secondary {
@@ -42,4 +43,5 @@
 .button_secondary:active {
     transform: translateY(4px);
     background-color: colors.$light_blue;
+    box-shadow: none;
 }
