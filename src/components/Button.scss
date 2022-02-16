@@ -10,9 +10,11 @@
     box-shadow: inset 0px -8px 0px #cc8b13;
 }
 
-.button_primary:hover {
-    background-color: colors.$light_yellow_hover;
-    cursor: pointer;
+@media (hover: hover) {
+    .button_primary:hover {
+        background-color: colors.$light_yellow_hover;
+        cursor: pointer;
+    }
 }
 
 .button_primary:active {
@@ -30,9 +32,11 @@
     box-shadow: inset 0px -8px 0px #118c87;
 }
 
-.button_secondary:hover {
-    background-color: colors.$light_blue_hover;
-    cursor: pointer;
+@media (hover: hover) {
+    .button_secondary:hover {
+        background-color: colors.$light_blue_hover;
+        cursor: pointer;
+    }
 }
 
 .button_secondary:active {
