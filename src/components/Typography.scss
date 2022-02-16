@@ -7,6 +7,7 @@ $bold_weight: 700;
 .typography_container {
     color: $font_color;
     text-transform: uppercase;
+    user-select: none;
 }
 
 .typography_half_opacity {

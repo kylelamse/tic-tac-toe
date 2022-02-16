@@ -49,7 +49,7 @@ const altMap = {
 };
 
 const getClassName = (size: sizes) => {
-    return sizeMap[size];
+    return sizeMap[size] + " game_piece";
 };
 
 const getIcon = (type: piece, outline?: boolean, color?: colors) => {
