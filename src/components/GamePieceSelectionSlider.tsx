@@ -18,7 +18,7 @@ const SelectionContainer = ({
         <div
             onClick={onClick}
             className={`game_piece_selection_slider_piece_container ${
-                selected && "game_piece_selection_slider_selected"
+                (selected && "game_piece_selection_slider_selected") || ""
             }`}
         >
             <GamePiece
