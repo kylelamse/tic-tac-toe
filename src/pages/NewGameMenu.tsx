@@ -8,7 +8,7 @@ type Props = {};
 
 const NewGameMenu = (props: Props) => {
     return (
-        <>
+        <div className="new_game_menu_container">
             <div className="new_game_menu_logo">
                 <Logo />
             </div>
@@ -19,7 +19,7 @@ const NewGameMenu = (props: Props) => {
                 <Button variant="primary">New Game (VS CPU)</Button>
                 <Button variant="secondary">New Game (VS Player)</Button>
             </div>
-        </>
+        </div>
     );
 };
 
