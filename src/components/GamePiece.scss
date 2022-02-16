@@ -1,3 +1,5 @@
+@use "styles/colors";
+
 .game_piece_large {
 }
 
@@ -7,4 +9,12 @@
 }
 
 .game_piece_small {
+}
+
+.game_piece_silver {
+    stroke: colors.$silver;
+}
+
+.game_piece_dark_navy {
+    stroke: colors.$dark_navy;
 }

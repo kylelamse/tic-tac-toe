@@ -5,7 +5,7 @@ import "./GamePieceSelectionSlider.scss";
 
 interface SelectionContainerProps {
     type: player;
-    selected: player;
+    selected: boolean;
     onClick: () => void;
 }
 
@@ -18,10 +18,15 @@ const SelectionContainer = ({
         <div
             onClick={onClick}
             className={`game_piece_selection_slider_piece_container ${
-                selected === type && "game_piece_selection_slider_selected"
+                selected && "game_piece_selection_slider_selected"
             }`}
         >
-            <GamePiece type={type} size="Medium" />
+            <GamePiece
+                type={type}
+                size="Medium"
+                color={selected ? "dark_navy" : "silver"}
+                outline={selected}
+            />
         </div>
     );
 };
@@ -40,12 +45,12 @@ const GamePieceSelectionSlider = (props: Props) => {
             <SelectionContainer
                 type="X"
                 onClick={selectX}
-                selected={selected}
+                selected={selected === "X"}
             />
             <SelectionContainer
                 type="O"
                 onClick={selectO}
-                selected={selected}
+                selected={selected === "O"}
             />
         </div>
     );
