@@ -10,6 +10,16 @@
     box-shadow: inset 0px -8px 0px #cc8b13;
 }
 
+.button_primary:hover {
+    background-color: colors.$light_yellow_hover;
+    cursor: pointer;
+}
+
+.button_primary:active {
+    transform: translateY(4px);
+    background-color: colors.$light_yellow;
+}
+
 .button_secondary {
     display: grid;
     justify-items: center;
@@ -18,4 +28,14 @@
     background-color: colors.$light_blue;
     border-radius: 1rem;
     box-shadow: inset 0px -8px 0px #118c87;
+}
+
+.button_secondary:hover {
+    background-color: colors.$light_blue_hover;
+    cursor: pointer;
+}
+
+.button_secondary:active {
+    transform: translateY(4px);
+    background-color: colors.$light_blue;
 }
