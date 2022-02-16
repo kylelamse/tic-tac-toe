@@ -23,5 +23,5 @@
 .game_piece_selection_slider_selected {
     background-color: colors.$silver;
     border-radius: 0.625rem;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s ease-in-out;
 }
