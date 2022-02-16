@@ -8,7 +8,7 @@ type Props = {
 
 const Button = ({ children }: Props) => {
     return (
-        <div className="button_primary">
+        <div className="button_secondary">
             <Typography variant="extrasmall" color="dark_navy">
                 {children}
             </Typography>
