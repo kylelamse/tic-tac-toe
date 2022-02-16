@@ -1,5 +1,8 @@
+@use "colors";
+
 body {
     font-family: "Outfit", sans-serif;
+    background-color: colors.$dark_navy;
 }
 
 *,
