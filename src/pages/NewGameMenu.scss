@@ -1,24 +1,9 @@
-@use "styles/mixins";
-
-$mobile_width: 20.5rem;
-$tablet_width: 28.75rem;
-$desktop_width: 28.75rem;
-
 .new_game_menu_container {
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: $mobile_width;
     gap: 2rem;
-
-    @include mixins.tablet {
-        width: $tablet_width;
-    }
-
-    @include mixins.desktop {
-        width: $desktop_width;
-    }
 }
 .new_game_menu_logo_game_piece_selection {
     width: 100%;

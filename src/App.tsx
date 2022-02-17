@@ -4,7 +4,9 @@ import NewGameMenu from "pages/NewGameMenu";
 function App() {
     return (
         <main className="main-section">
-            <NewGameMenu />
+            <div className="current-page">
+                <NewGameMenu />
+            </div>
         </main>
     );
 }
