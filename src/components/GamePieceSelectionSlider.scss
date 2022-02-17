@@ -3,8 +3,6 @@
 .game_piece_selection_slider_container {
     display: flex;
     flex-direction: row;
-    width: 17.5rem;
-    height: 4.5rem;
     background-color: colors.$dark_navy;
     border-radius: 0.625rem;
     margin-top: 1.5rem;
@@ -18,10 +16,12 @@
     align-items: center;
     flex: 1;
     cursor: pointer;
+    padding: 1rem 3.125rem;
 }
 
 .game_piece_selection_slider_selected {
     background-color: colors.$silver;
     border-radius: 0.625rem;
     transition: background-color 0.25s ease-in-out;
+    padding: 1rem 3.125rem;
 }

@@ -9,10 +9,7 @@ $desktop_width: 28.75rem;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-
-    @include mixins.mobile {
-        width: $mobile_width;
-    }
+    width: $mobile_width;
 
     @include mixins.tablet {
         width: $tablet_width;
