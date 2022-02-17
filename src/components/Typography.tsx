@@ -1,13 +1,18 @@
 import React from "react";
+import classNames from "classnames";
 import "./Typography.scss";
 
 type colors = "dark_navy";
+type alignments = "centered";
+type variants = "large" | "medium" | "small" | "extrasmall" | "body";
+type opacities = "half";
 
 type Props = {
     children: string;
-    variant: "large" | "medium" | "small" | "extrasmall" | "body";
-    opacity?: "half";
+    variant: variants;
+    opacity?: opacities;
     color?: colors;
+    alignment?: alignments;
 };
 
 const variantMap = {
@@ -33,19 +38,28 @@ const variantMap = {
     },
 };
 
-const getClassName = (className: string, opacity?: string, color?: colors) => {
-    return `${className} typography_container ${
-        (opacity === "half" && "typography_half_opacity") || ""
-    }  ${(color && `typography_${color}`) || ""}`;
+const getClassName = (
+    className: string,
+    opacity?: opacities,
+    color?: colors,
+    alignment?: alignments
+) => {
+    return classNames({
+        [className]: true,
+        typography_container: true,
+        typography_half_opacity: opacity === "half",
+        typography_dark_navy: color === "dark_navy",
+        typography_centered: alignment === "centered",
+    });
 };
 
-const Typograpy = ({ children, variant, opacity, color }: Props) => {
+const Typograpy = ({ children, variant, opacity, color, alignment }: Props) => {
     const variantObject = variantMap[variant];
     const { type, className } = variantObject;
 
     return React.createElement(
         type,
-        { className: getClassName(className, opacity, color) },
+        { className: getClassName(className, opacity, color, alignment) },
         [children]
     );
 };

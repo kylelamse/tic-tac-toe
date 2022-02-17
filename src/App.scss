@@ -2,24 +2,16 @@
 @use "styles/mixins";
 
 $mobile_width: 20.5rem;
-$tablet_width: 28.75rem;
-$desktop_width: 28.75rem;
+$standard_width: 28.75rem;
 
 .main-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 7.5rem;
 }
 
 .current-page {
-    width: $mobile_width;
-    @include mixins.tablet {
-        width: $tablet_width;
-    }
+    max-width: $standard_width;
+    margin: 0 auto;
 
-    @include mixins.desktop {
-        width: $desktop_width;
+    @include mixins.mobile {
+        max-width: $mobile_width;
     }
 }

@@ -1,6 +1,7 @@
 @use "colors";
 @use "mixins";
 
+html,
 body {
     font-family: "Outfit", sans-serif;
     background-color: colors.$dark_navy;
