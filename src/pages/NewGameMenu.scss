@@ -10,6 +10,7 @@ $desktop_width: 28.75rem;
     justify-items: center;
     align-items: center;
     width: $mobile_width;
+    gap: 2rem;
 
     @include mixins.tablet {
         width: $tablet_width;
@@ -19,16 +20,9 @@ $desktop_width: 28.75rem;
         width: $desktop_width;
     }
 }
-
-.new_game_menu_logo {
-    margin-bottom: 2rem;
-}
-
 .new_game_menu_logo_game_piece_selection {
-    margin-bottom: 2rem;
     width: 100%;
 }
-
 .new_game_menu_logo_button_container {
     display: flex;
     flex-direction: column;
