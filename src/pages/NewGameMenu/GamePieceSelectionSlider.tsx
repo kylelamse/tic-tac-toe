@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GamePiece from "./GamePiece";
+import GamePiece from "components/GamePiece";
 
 import "./GamePieceSelectionSlider.scss";
 

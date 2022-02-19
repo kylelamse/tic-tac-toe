@@ -1,11 +1,13 @@
 import "./App.scss";
-import NewGameMenu from "pages/NewGameMenu";
+import NewGameMenu from "pages/NewGameMenu/NewGameMenu";
+import Game from "pages/Game/Game";
 
 function App() {
     return (
         <main className="main-section">
             <div className="current-page">
-                <NewGameMenu />
+                <Game />
+                {/* <NewGameMenu /> */}
             </div>
         </main>
     );

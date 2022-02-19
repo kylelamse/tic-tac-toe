@@ -1,4 +1,4 @@
-import Typograpy from "./Typography";
+import Typograpy from "components/Typography";
 import GamePieceSelectionSlider from "./GamePieceSelectionSlider";
 
 import "./GamePieceSelection.scss";

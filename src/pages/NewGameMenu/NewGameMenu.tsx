@@ -1,5 +1,5 @@
 import Logo from "components/Logo";
-import GamePieceSelection from "components/GamePieceSelection";
+import GamePieceSelection from "pages/NewGameMenu/GamePieceSelection";
 import Button from "components/Button";
 
 import "./NewGameMenu.scss";
