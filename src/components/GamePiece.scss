@@ -5,6 +5,8 @@
 }
 
 .game_piece_large {
+    max-width: 2.5em;
+    max-height: 2.5em;
 }
 
 .game_piece_medium {
@@ -13,4 +15,6 @@
 }
 
 .game_piece_small {
+    max-width: 1em;
+    max-height: 1em;
 }

@@ -4,7 +4,7 @@ import "./Button.scss";
 
 type variants = "primary" | "secondary";
 type Props = {
-    children: string;
+    children: React.ReactNode | string;
     variant?: variants;
 };
 

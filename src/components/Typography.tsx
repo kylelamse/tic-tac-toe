@@ -8,7 +8,7 @@ type variants = "large" | "medium" | "small" | "extrasmall" | "body";
 type opacities = "half";
 
 type Props = {
-    children: string;
+    children: React.ReactNode;
     variant: variants;
     opacity?: opacities;
     color?: colors;

@@ -6,7 +6,7 @@ type Props = {};
 
 const Game = (props: Props) => {
     return (
-        <div>
+        <div className="game-container">
             <GameHeader />
         </div>
     );
