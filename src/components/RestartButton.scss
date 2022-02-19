@@ -1,0 +1,13 @@
+@use "styles/colors";
+
+.restart_button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40px;
+    max-height: 40px;
+    background-color: colors.$silver;
+    border-radius: 0.25em;
+    box-shadow: inset 0px -4px 0px #6b8997;
+    padding: 1em;
+}
