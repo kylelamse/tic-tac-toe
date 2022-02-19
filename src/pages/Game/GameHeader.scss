@@ -1,5 +1,8 @@
-.game-header {
+.game_header_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
+
+.game_header_turn_status_container {
+    margin: 0 74px 0 46px;
 }

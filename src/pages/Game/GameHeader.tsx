@@ -8,9 +8,11 @@ type Props = {};
 
 const GameHeader = (props: Props) => {
     return (
-        <div className="game-header">
+        <div className="game_header_container">
             <Logo />
-            <TurnStatus currentPlayer="X" />
+            <div className="game_header_turn_status_container">
+                <TurnStatus currentPlayer="X" />
+            </div>
             <RestartButton />
         </div>
     );
