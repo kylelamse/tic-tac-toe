@@ -9,7 +9,7 @@ $standard_width: 28.75rem;
 
 .current-page {
     max-width: $standard_width;
-    margin: 7.5rem auto 0 auto;
+    margin: 0 auto;
 
     @include mixins.mobile {
         max-width: $mobile_width;
