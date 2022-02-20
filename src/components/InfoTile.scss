@@ -1,0 +1,19 @@
+@use "styles/colors";
+
+.info_tile_container {
+    text-align: center;
+    border-radius: 0.625em;
+    padding: 0.75em;
+}
+
+.info_tile_light_blue {
+    background-color: colors.$light_blue;
+}
+
+.info_tile_light_yellow {
+    background-color: colors.$light_yellow;
+}
+
+.info_tile_silver {
+    background-color: colors.$silver;
+}

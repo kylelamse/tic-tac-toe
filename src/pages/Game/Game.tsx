@@ -1,3 +1,4 @@
+import Board from "components/Board";
 import React from "react";
 import "./Game.scss";
 import GameHeader from "./GameHeader";
@@ -8,6 +9,7 @@ const Game = (props: Props) => {
     return (
         <div className="game-container">
             <GameHeader />
+            <Board />
         </div>
     );
 };
