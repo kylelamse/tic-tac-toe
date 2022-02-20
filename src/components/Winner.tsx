@@ -1,5 +1,6 @@
 import React from "react";
 import GamePiece from "./GamePiece";
+import Show from "./Show";
 import Typograpy from "./Typography";
 import "./Winner.scss";
 
@@ -12,17 +13,25 @@ const Winner = ({ winner }: Props) => {
     return (
         <div className="winner_container">
             <GamePiece size="Medium" type={winner} />
-            <Typograpy
-                variant="medium"
-                alignment="centered"
-                color={
-                    (winner === "O" && "light_yellow") ||
-                    (winner === "X" && "light_blue") ||
-                    undefined
-                }
-            >
-                takes the round
-            </Typograpy>
+
+            <Show show={winner === "O"}>
+                <Typograpy
+                    variant="medium"
+                    alignment="centered"
+                    color="light_yellow"
+                >
+                    takes the round
+                </Typograpy>
+            </Show>
+            <Show show={winner === "X"}>
+                <Typograpy
+                    variant="medium"
+                    alignment="centered"
+                    color="light_yellow"
+                >
+                    takes the round
+                </Typograpy>
+            </Show>
         </div>
     );
 };
