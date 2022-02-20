@@ -14,7 +14,7 @@ const GameOver = (props: Props) => {
                     Oh no, you lost...
                 </Typograpy>
                 <div className="game_over_winner_container">
-                    <Winner />
+                    <Winner winner="X" />
                 </div>
                 <div className="game_over_buttons_container">
                     <Button color="silver" size="medium">

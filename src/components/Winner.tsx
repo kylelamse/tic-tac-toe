@@ -3,16 +3,23 @@ import GamePiece from "./GamePiece";
 import Typograpy from "./Typography";
 import "./Winner.scss";
 
-type Props = {};
+type winners = "X" | "O";
+type Props = {
+    winner: winners;
+};
 
-const Winner = (props: Props) => {
+const Winner = ({ winner }: Props) => {
     return (
         <div className="winner_container">
-            <GamePiece size="Medium" type="O" />
+            <GamePiece size="Medium" type={winner} />
             <Typograpy
                 variant="medium"
                 alignment="centered"
-                color="light_yellow"
+                color={
+                    (winner === "O" && "light_yellow") ||
+                    (winner === "X" && "light_blue") ||
+                    undefined
+                }
             >
                 takes the round
             </Typograpy>
