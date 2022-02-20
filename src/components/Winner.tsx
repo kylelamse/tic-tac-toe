@@ -27,7 +27,7 @@ const Winner = ({ winner }: Props) => {
                 <Typograpy
                     variant="medium"
                     alignment="centered"
-                    color="light_yellow"
+                    color="light_blue"
                 >
                     takes the round
                 </Typograpy>
