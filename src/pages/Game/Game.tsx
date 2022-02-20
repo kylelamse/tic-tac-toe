@@ -1,18 +1,26 @@
+import styled from "@emotion/styled";
+
 import Board from "components/Board";
 import GameOver from "components/GameOver";
 import React from "react";
-import "./Game.scss";
 import GameHeader from "./GameHeader";
+
+const Container = styled.div`
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+`;
 
 type Props = {};
 
 const Game = (props: Props) => {
     return (
-        <div className="game-container">
+        <Container>
             <GameHeader />
             <Board />
             <GameOver />
-        </div>
+        </Container>
     );
 };
 
