@@ -12,8 +12,12 @@ const NewGameMenu = (props: Props) => {
             <Logo />
             <GamePieceSelection />
             <div className="new_game_menu_button_container">
-                <Button variant="primary">New Game (VS CPU)</Button>
-                <Button variant="secondary">New Game (VS Player)</Button>
+                <Button color="light_yellow" size="large">
+                    New Game (VS CPU)
+                </Button>
+                <Button color="light_blue" size="large">
+                    New Game (VS Player)
+                </Button>
             </div>
         </div>
     );

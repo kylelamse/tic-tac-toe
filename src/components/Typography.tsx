@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "./Typography.scss";
 
-type colors = "dark_navy";
+type colors = "dark_navy" | "light_yellow";
 type alignments = "centered";
 type variants = "large" | "medium" | "small" | "extrasmall" | "body";
 type opacities = "half";
@@ -50,6 +50,7 @@ const getClassName = (
         typography_half_opacity: opacity === "half",
         typography_dark_navy: color === "dark_navy",
         typography_centered: alignment === "centered",
+        typography_light_yellow: color === "light_yellow",
     });
 };
 
