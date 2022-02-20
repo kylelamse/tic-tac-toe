@@ -18,8 +18,6 @@ const classNames = {
 const InfoTile = ({ label, value, color }: Props) => {
     const className = classNames[color] + " info_tile_container";
 
-    console.log(color);
-
     return (
         <div className={className}>
             <Typograpy variant="body" color="dark_navy">
