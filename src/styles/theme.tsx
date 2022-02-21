@@ -1,5 +1,3 @@
-import styled from "@emotion/styled";
-
 const theme = {
     colors: {
         lightBlue: "hsl(178, 60%, 48%)",
@@ -16,5 +14,7 @@ const theme = {
         silverDropShadow: "hsl(199, 17%, 51%)",
     },
 };
+
+export type AppTheme = typeof theme;
 
 export default theme;
