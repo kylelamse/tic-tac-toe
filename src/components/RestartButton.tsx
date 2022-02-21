@@ -7,7 +7,7 @@ const Container = styled.div`
     align-items: center;
     max-width: 2.5em;
     max-height: 2.5em;
-    background-color: colors.$silver;
+    background-color: ${(props) => props.theme.colors.silver};
     border-radius: 0.25em;
     box-shadow: inset 0 -0.25em 0 #6b8997;
     padding: 1em;
