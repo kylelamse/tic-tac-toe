@@ -1,5 +1,3 @@
-import "./GamePiece.scss";
-
 import xIcon from "assets/icon-x.svg";
 import xIconSilver from "assets/icon-x-silver.svg";
 import xIconDarkNavy from "assets/icon-x-dark-navy.svg";
@@ -11,6 +9,7 @@ import oIconSilver from "assets/icon-o-silver.svg";
 import oIconDarkNavy from "assets/icon-o-dark-navy.svg";
 import oIconOutline from "assets/icon-o-outline.svg";
 import oIconOutlineSilver from "assets/icon-o-outline-silver.svg";
+import styled from "@emotion/styled";
 
 type sizes = "Large" | "Medium" | "Small";
 type piece = "O" | "X";
@@ -20,12 +19,6 @@ type Props = {
     type: piece;
     outline?: boolean;
     color?: colors;
-};
-
-const sizeMap = {
-    Large: "game_piece_large",
-    Medium: "game_piece_medium",
-    Small: "game_piece_small",
 };
 
 const iconMap = {
@@ -48,10 +41,6 @@ const altMap = {
     X: "X Icon",
 };
 
-const getClassName = (size: sizes) => {
-    return sizeMap[size] + " game_piece";
-};
-
 const getIcon = (type: piece, outline?: boolean, color?: colors) => {
     if (outline && color) {
         return iconMap[`${type}_outline_${color}`];
@@ -68,12 +57,27 @@ const getIcon = (type: piece, outline?: boolean, color?: colors) => {
     return iconMap[type];
 };
 
+const getDimensions = (size: sizes) => {
+    switch (size) {
+        case "Large":
+            return "2.5em";
+        case "Medium":
+            return "2em";
+        case "Small":
+            return "1em";
+    }
+};
+
+const GamePieceContainer = styled.img<{ size: sizes }>`
+    user-select: none;
+    max-width: ${(props) => getDimensions(props.size)};
+`;
+
 const GamePiece = ({ type, size, outline, color }: Props) => {
-    const className = getClassName(size);
     const icon = getIcon(type, outline, color);
     const alt = altMap[type];
 
-    return <img className={className} src={icon} alt={alt} />;
+    return <GamePieceContainer size={size} src={icon} alt={alt} />;
 };
 
 export default GamePiece;
