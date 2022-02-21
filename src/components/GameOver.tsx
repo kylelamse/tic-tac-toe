@@ -1,31 +1,59 @@
 import { createPortal } from "react-dom";
+import styled from "@emotion/styled";
 import Button from "./Button";
 import "./GameOver.scss";
 import Typograpy from "./Typography";
 import Winner from "./Winner";
 
+const Container = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const Content = styled.div`
+    background-color: ${(props) => props.theme.colors.semiDarkNavy};
+    padding: 2.5em 0 3em 0;
+`;
+
+const WinnerContainer = styled.div`
+    margin: 1em 0 1.5em 0;
+`;
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+`;
+
 type Props = {};
 
 const GameOver = (props: Props) => {
     return (
-        <div className="game_over_container">
-            <div className="game_over_content">
+        <Container>
+            <Content>
                 <Typograpy variant="body" alignment="centered">
                     Oh no, you lost...
                 </Typograpy>
-                <div className="game_over_winner_container">
+                <WinnerContainer>
                     <Winner winner="X" />
-                </div>
-                <div className="game_over_buttons_container">
+                </WinnerContainer>
+                <ButtonsContainer>
                     <Button color="silver" size="medium">
                         Quit
                     </Button>
                     <Button color="light_yellow" size="medium">
                         Next Round
                     </Button>
-                </div>
-            </div>
-        </div>
+                </ButtonsContainer>
+            </Content>
+        </Container>
     );
 };
 
