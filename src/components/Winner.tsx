@@ -1,8 +1,15 @@
-import React from "react";
+import styled from "@emotion/styled";
 import GamePiece from "./GamePiece";
 import Show from "./Show";
 import Typograpy from "./Typography";
-import "./Winner.scss";
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+`;
 
 type winners = "X" | "O";
 type Props = {
@@ -11,9 +18,8 @@ type Props = {
 
 const Winner = ({ winner }: Props) => {
     return (
-        <div className="winner_container">
+        <Container>
             <GamePiece size="Medium" type={winner} />
-
             <Show show={winner === "O"}>
                 <Typograpy
                     variant="medium"
@@ -32,7 +38,7 @@ const Winner = ({ winner }: Props) => {
                     takes the round
                 </Typograpy>
             </Show>
-        </div>
+        </Container>
     );
 };
 
