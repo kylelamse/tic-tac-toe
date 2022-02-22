@@ -4,6 +4,7 @@ import theme from "styles/theme";
 import "./App.scss";
 import NewGameMenu from "pages/NewGameMenu/NewGameMenu";
 import Game from "pages/Game/Game";
+import Typograpy from "components/Typography";
 
 function App() {
     return (

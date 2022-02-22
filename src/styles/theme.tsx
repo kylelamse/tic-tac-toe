@@ -13,6 +13,15 @@ const theme = {
         silverHover: "hsl(197, 33%, 89%)",
         silverDropShadow: "hsl(199, 17%, 51%)",
     },
+    font: {
+        mediumWeight: 500,
+        boldWeight: 700,
+        large: "2.5rem",
+        medium: "1.5rem",
+        small: "1.25rem",
+        extraSmall: "1rem",
+        body: "0.875rem",
+    },
 };
 
 export type AppTheme = typeof theme;
