@@ -1,6 +1,28 @@
-import React from "react";
-import "./InfoTile.scss";
+import styled from "@emotion/styled";
+import { AppTheme } from "styles/theme";
 import Typograpy from "./Typography";
+
+const getBackgroundColor = (color: colors, theme: AppTheme) => {
+    switch (color) {
+        case "light_blue":
+            return theme.colors.lightBlue;
+        case "light_yellow":
+            return theme.colors.lightYellow;
+        case "silver":
+            return theme.colors.silver;
+    }
+};
+
+type InfoTileContainerProps = {
+    color: colors;
+};
+const InfoTileContainer = styled.div<InfoTileContainerProps>`
+    text-align: center;
+    border-radius: 0.625em;
+    padding: 0.75em;
+    background-color: ${(props) =>
+        getBackgroundColor(props.color, props.theme)};
+`;
 
 type colors = "light_blue" | "light_yellow" | "silver";
 type Props = {
@@ -9,26 +31,16 @@ type Props = {
     color: colors;
 };
 
-const classNames = {
-    light_blue: "info_tile_light_blue",
-    light_yellow: "info_tile_light_yellow",
-    silver: "info_tile_silver",
-};
-
 const InfoTile = ({ label, value, color }: Props) => {
-    const className = classNames[color] + " info_tile_container";
-
-    console.log(color);
-
     return (
-        <div className={className}>
+        <InfoTileContainer color={color}>
             <Typograpy variant="body" color="dark_navy">
                 {label}
             </Typograpy>
             <Typograpy variant="medium" color="dark_navy">
                 {value}
             </Typograpy>
-        </div>
+        </InfoTileContainer>
     );
 };
 
