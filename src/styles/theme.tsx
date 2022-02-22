@@ -22,6 +22,14 @@ const theme = {
         extraSmall: "1rem",
         body: "0.875rem",
     },
+    breakpoints: {
+        mobile: "375px",
+        desktop: "1440px",
+    },
+    content: {
+        standard: "28.75rem",
+        mobile: "20.5rem",
+    },
 };
 
 export type AppTheme = typeof theme;

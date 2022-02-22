@@ -1,10 +1,11 @@
 import { css } from "@emotion/react";
+import theme from "./theme";
 
 export default css`
     html,
     body {
         font-family: "Outfit", sans-serif;
-        background-color: colors.$dark_navy;
+        background-color: ${theme.colors.darkNavy};
     }
 
     *,
