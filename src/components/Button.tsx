@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import classNames from "classnames";
 import Typography from "components/Typography";
 import { AppTheme } from "styles/theme";
 
@@ -72,18 +71,6 @@ type Props = {
     children: React.ReactNode | string;
     color: colors;
     size: sizes;
-};
-
-const getClassName = (color: colors, size: sizes) => {
-    return classNames({
-        button_light_yellow_large: color === "light_yellow" && size === "large",
-        button_light_blue_large: color === "light_blue" && size === "large",
-        button_silver_large: color === "silver" && size === "large",
-        button_light_yellow_medium:
-            color === "light_yellow" && size === "medium",
-        button_light_blue_medium: color === "light_blue" && size === "medium",
-        button_silver_medium: color === "silver" && size === "medium",
-    });
 };
 
 const Button = ({ children, color, size }: Props) => {

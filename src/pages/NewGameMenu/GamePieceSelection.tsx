@@ -1,13 +1,21 @@
+import styled from "@emotion/styled";
+
 import Typograpy from "components/Typography";
 import GamePieceSelectionSlider from "./GamePieceSelectionSlider";
 
-import "./GamePieceSelection.scss";
+const Container = styled.div`
+    background-color: ${({ theme }) => theme.colors.semiDarkNavy};
+    box-shadow: ${({ theme }) => theme.colors.semiDarkNavyDropShadow};
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    margin: 2rem 0 2rem 0;
+`;
 
 type Props = {};
 
 const GamePieceSelection = (props: Props) => {
     return (
-        <div className="game_piece_selection_container">
+        <Container>
             <Typograpy variant="extrasmall" alignment="centered">
                 Pick player 1's mark
             </Typograpy>
@@ -15,7 +23,7 @@ const GamePieceSelection = (props: Props) => {
             <Typograpy variant="body" opacity="half" alignment="centered">
                 Remember: X Goes First
             </Typograpy>
-        </div>
+        </Container>
     );
 };
 

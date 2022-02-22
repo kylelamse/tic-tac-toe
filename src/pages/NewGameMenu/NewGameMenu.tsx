@@ -1,25 +1,35 @@
+import styled from "@emotion/styled";
+
 import Logo from "components/Logo";
 import GamePieceSelection from "pages/NewGameMenu/GamePieceSelection";
 import Button from "components/Button";
 
-import "./NewGameMenu.scss";
+const Container = styled.div`
+    margin-top: 7.5rem;
+`;
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
 
 type Props = {};
 
 const NewGameMenu = (props: Props) => {
     return (
-        <div className="new_game_menu_container">
+        <Container>
             <Logo />
             <GamePieceSelection />
-            <div className="new_game_menu_button_container">
+            <ButtonContainer>
                 <Button color="light_yellow" size="large">
                     New Game (VS CPU)
                 </Button>
                 <Button color="light_blue" size="large">
                     New Game (VS Player)
                 </Button>
-            </div>
-        </div>
+            </ButtonContainer>
+        </Container>
     );
 };
 
