@@ -19,7 +19,7 @@ const Game = (props: Props) => {
         <Container>
             <GameHeader />
             <Board />
-            {/* <GameOver /> */}
+            <GameOver />
         </Container>
     );
 };
