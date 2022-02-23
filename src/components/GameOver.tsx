@@ -13,6 +13,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const Content = styled.div`
