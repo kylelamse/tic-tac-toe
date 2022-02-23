@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 import Board from "components/Board";
-import GameOver from "components/GameOver";
+import GameOver from "components/Modal/GameOver";
 import React from "react";
 import GameHeader from "./GameHeader";
 
@@ -19,7 +19,7 @@ const Game = (props: Props) => {
         <Container>
             <GameHeader />
             <Board />
-            {/* <GameOver /> */}
+            <GameOver />
         </Container>
     );
 };
