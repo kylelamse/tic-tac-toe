@@ -55,5 +55,5 @@ const GameOver = (props: Props) => {
         </Container>
     );
 };
-
-export default () => createPortal(<GameOver />, document.body);
+const portal = () => createPortal(<GameOver />, document.body);
+export default portal;
