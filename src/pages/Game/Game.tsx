@@ -4,6 +4,7 @@ import Board from "components/Board";
 import GameOver from "components/Modal/GameOver";
 import React from "react";
 import GameHeader from "./GameHeader";
+import RestartMenu from "components/Modal/RestartMenu";
 
 const Container = styled.div`
     margin-top: 1.5em;
@@ -19,7 +20,8 @@ const Game = (props: Props) => {
         <Container>
             <GameHeader />
             <Board />
-            <GameOver />
+            <RestartMenu />
+            {/* <GameOver /> */}
         </Container>
     );
 };
