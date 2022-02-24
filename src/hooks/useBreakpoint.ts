@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 type Breakpoint = {
-    min?: string;
-    max?: string;
+    min: string;
+    max: string;
 };
 
 export default function useBreakpoint({ min = "", max = "" }: Breakpoint) {
