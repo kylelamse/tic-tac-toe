@@ -11,7 +11,7 @@ import oIconOutline from "assets/icon-o-outline.svg";
 import oIconOutlineSilver from "assets/icon-o-outline-silver.svg";
 import styled from "@emotion/styled";
 
-type sizes = "Large" | "Medium" | "Small";
+type sizes = "ExtraLarge" | "Large" | "Medium" | "Small";
 type piece = "O" | "X";
 type colors = "silver" | "dark_navy";
 type Props = {
@@ -59,6 +59,8 @@ const getIcon = (type: piece, outline?: boolean, color?: colors) => {
 
 const getDimensions = (size: sizes) => {
     switch (size) {
+        case "ExtraLarge":
+            return "4em";
         case "Large":
             return "2.5em";
         case "Medium":
