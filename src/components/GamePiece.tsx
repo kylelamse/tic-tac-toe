@@ -71,6 +71,7 @@ const getDimensions = (size: sizes) => {
 const GamePieceContainer = styled.img<{ size: sizes }>`
     user-select: none;
     max-width: ${(props) => getDimensions(props.size)};
+    max-height: ${(props) => getDimensions(props.size)};
 `;
 
 const GamePiece = ({ type, size, outline, color }: Props) => {

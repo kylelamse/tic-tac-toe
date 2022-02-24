@@ -23,7 +23,7 @@ const Game = (props: Props) => {
             <Board />
             {/* <RestartMenu /> */}
             {/* <GameOver /> */}
-            <RoundTied />
+            {/* <RoundTied /> */}
         </Container>
     );
 };
