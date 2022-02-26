@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 
 import GamePiecePlace from "./GamePiecePlace";
 import InfoTile from "./InfoTile";
+import Logo from "./Logo";
+import RestartButton from "./RestartButton";
+import TurnStatus from "./TurnStatus";
 
 const BoardContainer = styled.div`
     display: grid;
@@ -9,11 +12,26 @@ const BoardContainer = styled.div`
     gap: 1.25em;
 `;
 
+const HeaderItem = styled.div`
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: none;
+    }
+`;
+
 type Props = {};
 
 const Board = (props: Props) => {
     return (
         <BoardContainer>
+            <HeaderItem>
+                <Logo />
+            </HeaderItem>
+            <HeaderItem>
+                <TurnStatus currentPlayer="X" />
+            </HeaderItem>
+            <HeaderItem>
+                <RestartButton />
+            </HeaderItem>
             <GamePiecePlace content="" />
             <GamePiecePlace content="X" />
             <GamePiecePlace content="O" />

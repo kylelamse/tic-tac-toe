@@ -8,6 +8,9 @@ import RestartButton from "components/RestartButton";
 const GameHeaderContainer = styled.div`
     display: flex;
     flex-direction: row;
+    @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: none;
+    }
 `;
 
 const GameHeaderStatusContainer = styled.div`
