@@ -5,6 +5,7 @@ import Typograpy from "./Typography";
 const Container = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 0.5em;
     background-color: ${(props) => props.theme.colors.semiDarkNavy};
     border-radius: 0.3125em;

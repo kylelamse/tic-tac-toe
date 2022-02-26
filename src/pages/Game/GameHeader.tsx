@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 import TurnStatus from "components/TurnStatus";
 import Logo from "components/Logo";
-import React from "react";
 import RestartButton from "components/RestartButton";
 
 const GameHeaderContainer = styled.div`

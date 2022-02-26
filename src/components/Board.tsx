@@ -12,10 +12,22 @@ const BoardContainer = styled.div`
     gap: 1.25em;
 `;
 
-const HeaderItem = styled.div`
+type justifyTypes = "start" | "end" | "";
+const justifySelf = (justify: justifyTypes = "") => {
+    if (!justify) return null;
+
+    return `justify-self: ${justify};`;
+};
+
+type HeaderItemProps = {
+    justify?: justifyTypes;
+};
+const HeaderItem = styled.div<HeaderItemProps>`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         display: none;
     }
+
+    ${(props) => justifySelf(props.justify)}
 `;
 
 type Props = {};
@@ -23,13 +35,13 @@ type Props = {};
 const Board = (props: Props) => {
     return (
         <BoardContainer>
-            <HeaderItem>
+            <HeaderItem justify="start">
                 <Logo />
             </HeaderItem>
             <HeaderItem>
                 <TurnStatus currentPlayer="X" />
             </HeaderItem>
-            <HeaderItem>
+            <HeaderItem justify="end">
                 <RestartButton />
             </HeaderItem>
             <GamePiecePlace content="" />
