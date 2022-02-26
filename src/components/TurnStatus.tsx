@@ -7,10 +7,15 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     gap: 0.5em;
+    padding: 0.875em 1.875em 1.1875em 1.875em;
     background-color: ${(props) => props.theme.colors.semiDarkNavy};
-    border-radius: 0.3125em;
-    padding: 0.625em 1em 0.75em 1em;
+    border-radius: 0.625em;
     box-shadow: inset 0 -0.25em 0 ${(props) => props.theme.colors.semiDarkNavyDropShadow};
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        border-radius: 0.3125em;
+        padding: 0.625em 1em 0.75em 1em;
+    }
 `;
 
 type players = "X" | "O";

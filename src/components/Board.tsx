@@ -10,6 +10,7 @@ const BoardContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.25em;
+    align-items: center;
 `;
 
 type justifyTypes = "start" | "end" | "";
@@ -23,11 +24,11 @@ type HeaderItemProps = {
     justify?: justifyTypes;
 };
 const HeaderItem = styled.div<HeaderItemProps>`
+    ${(props) => justifySelf(props.justify)}
+
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         display: none;
     }
-
-    ${(props) => justifySelf(props.justify)}
 `;
 
 type Props = {};
