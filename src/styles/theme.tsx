@@ -23,7 +23,7 @@ const theme = {
         body: "0.875rem",
     },
     breakpoints: {
-        mobile: "375px",
+        mobile: "460px",
         desktop: "1440px",
     },
     content: {
