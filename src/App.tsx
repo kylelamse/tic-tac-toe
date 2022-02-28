@@ -21,8 +21,8 @@ function App() {
                 <div className="current-page">
                     <CurrentPage>
                         <Global styles={globalStyles} />
-                        <Game />
-                        {/* <NewGameMenu /> */}
+                        {/* <Game /> */}
+                        <NewGameMenu />
                     </CurrentPage>
                 </div>
             </main>
