@@ -31,6 +31,7 @@ const GamePiecePlace = ({ content }: Props) => {
                 <GamePiece
                     size={isMobile ? "Large" : "ExtraLarge"}
                     type={content}
+                    hover
                 />
             )}
         </Container>

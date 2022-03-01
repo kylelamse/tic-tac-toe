@@ -7,6 +7,7 @@ type colors = "silver" | "dark_navy" | "light_yellow" | "light_blue";
 
 type Props = {
     size: sizes;
+    hover?: boolean;
 } & IconProps;
 
 type IconProps = {
@@ -82,14 +83,36 @@ const getDimensions = (size: sizes) => {
     }
 };
 
-const IconContainer = styled.div<Props>`
+const getHoverStyles = (color: colors) =>
+    `svg:hover {
+        cursor: pointer;
+        fill-opacity: 0;
+        stroke: ${getColor(color)};
+        stroke-width: 2;
+    }`;
+
+const IconContainer = styled.div<{
+    size: sizes;
+    color: colors;
+    hover: boolean;
+}>`
     max-width: ${({ size }) => getDimensions(size)};
     max-height: ${({ size }) => getDimensions(size)};
+    ${({ hover, color }) => hover && getHoverStyles(color)};
 `;
 
-const GamePiece = ({ type, size, outline, color }: Props) => {
+const defaultColorMap: { [type in piece]: colors } = {
+    X: "light_blue",
+    O: "light_yellow",
+};
+
+const GamePiece = ({ type, size, outline, color, hover = false }: Props) => {
     return (
-        <IconContainer size={size} type={type}>
+        <IconContainer
+            size={size}
+            color={color ? color : defaultColorMap[type]}
+            hover={hover}
+        >
             <Icon type={type} outline={outline} color={color} />
         </IconContainer>
     );
