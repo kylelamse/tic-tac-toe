@@ -14,6 +14,11 @@ const Container = styled.div`
         padding: 0.5em 0.75em;
         border-radius: 0.25em;
     }
+
+    :hover {
+        cursor: pointer;
+        background-color: ${({ theme }) => theme.colors.silverHover};
+    }
 `;
 
 type Props = {};

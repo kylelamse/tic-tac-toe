@@ -20,6 +20,23 @@ const backgroundColor = (color: colors, theme: AppTheme) => {
     return `background-color: ${themeColor}`;
 };
 
+const hoverColor = (color: colors, theme: AppTheme) => {
+    let themeColor;
+    switch (color) {
+        case "light_blue":
+            themeColor = theme.colors.lightBlueHover;
+            break;
+        case "light_yellow":
+            themeColor = theme.colors.lightYellowHover;
+            break;
+        case "silver":
+            themeColor = theme.colors.silverHover;
+            break;
+    }
+
+    return `background-color: ${themeColor}`;
+};
+
 const boxShadow = (color: colors, yOffset: string, theme: AppTheme) => {
     let themeColor;
     switch (color) {
@@ -63,6 +80,11 @@ const ButtonContainer = styled.div<ButtonContainerProps>`
     ${(props) => padding(props.size)};
     ${(props) => borderRadius(props.size)};
     text-align: center;
+
+    :hover {
+        cursor: pointer;
+        ${({ theme, color }) => hoverColor(color, theme)};
+    }
 `;
 
 type colors = "light_yellow" | "light_blue" | "silver";

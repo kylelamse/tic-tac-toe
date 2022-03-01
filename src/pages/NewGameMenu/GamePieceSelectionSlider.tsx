@@ -19,11 +19,17 @@ const SliderPieceContainer = styled.div<SelectionContainerProps>`
     justify-content: center;
     cursor: pointer;
     padding: 0.5rem 0;
+    border-radius: 0.625em;
+
     ${({ selected, theme }) =>
-        `${
-            selected &&
-            `background-color: ${theme.colors.silver}; border-radius: 0.625em`
-        }`};
+        `${selected && `background-color: ${theme.colors.silver};`}`};
+
+    :hover {
+        ${({ selected, theme }) =>
+            `${
+                !selected && `background-color: ${theme.colors.darkNavyHover};`
+            }`};
+    }
 `;
 
 type SelectionContainerProps = {

@@ -11,6 +11,7 @@ const Container = styled.div<{ content: content }>`
     border-radius: 0.625em;
     box-shadow: inset 0 -0.5em 0 ${(props) => props.theme.colors.semiDarkNavyDropShadow};
     padding: ${(props) => (props.content === "" ? "4.375em" : "2.375em")};
+    ${({ content }) => content && getHoverStyles(content)};
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         padding: ${(props) =>
@@ -18,7 +19,21 @@ const Container = styled.div<{ content: content }>`
     }
 `;
 
-type content = "" | "X" | "O";
+const getHoverStyles = (player: player) =>
+    `&:hover, svg:hover {
+        cursor: pointer;
+        fill-opacity: 0;
+        stroke: ${colorMap[player]};
+        stroke-width: 2;
+    }`;
+
+const colorMap = {
+    X: theme.colors.lightBlue,
+    O: theme.colors.lightYellow,
+};
+
+type player = "X" | "O";
+type content = player | "";
 type Props = {
     content: content;
 };

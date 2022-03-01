@@ -82,14 +82,25 @@ const getDimensions = (size: sizes) => {
     }
 };
 
-const IconContainer = styled.div<Props>`
+const IconContainer = styled.div<{
+    size: sizes;
+    color: colors;
+}>`
     max-width: ${({ size }) => getDimensions(size)};
     max-height: ${({ size }) => getDimensions(size)};
 `;
 
+const defaultColorMap: { [type in piece]: colors } = {
+    X: "light_blue",
+    O: "light_yellow",
+};
+
 const GamePiece = ({ type, size, outline, color }: Props) => {
     return (
-        <IconContainer size={size} type={type}>
+        <IconContainer
+            size={size}
+            color={color ? color : defaultColorMap[type]}
+        >
             <Icon type={type} outline={outline} color={color} />
         </IconContainer>
     );
