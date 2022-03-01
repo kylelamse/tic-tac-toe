@@ -1,17 +1,4 @@
-import xIcon from "assets/icon-x.svg";
-import xIconSilver from "assets/icon-x-silver.svg";
-import xIconDarkNavy from "assets/icon-x-dark-navy.svg";
-import xIconOutline from "assets/icon-x-outline.svg";
-import xIconOutlineSilver from "assets/icon-x-outline-silver.svg";
-
-import oIcon from "assets/icon-o.svg";
-import oIconSilver from "assets/icon-o-silver.svg";
-import oIconDarkNavy from "assets/icon-o-dark-navy.svg";
-import oIconOutline from "assets/icon-o-outline.svg";
-import oIconOutlineSilver from "assets/icon-o-outline-silver.svg";
 import styled from "@emotion/styled";
-import useBreakpoint from "hooks/useBreakpoint";
-import theme from "styles/theme";
 
 type sizes = "ExtraLarge" | "Large" | "Medium" | "Small";
 type piece = "O" | "X";
@@ -23,41 +10,46 @@ type Props = {
     color?: colors;
 };
 
-const iconMap = {
-    X: xIcon,
-    X_outline: xIconOutline,
-    X_silver: xIconSilver,
-    X_dark_navy: xIconDarkNavy,
-    X_outline_dark_navy: xIconDarkNavy,
-    X_outline_silver: xIconOutlineSilver,
-    O: oIcon,
-    O_silver: oIconSilver,
-    O_dark_navy: oIconDarkNavy,
-    O_outline: oIconOutline,
-    O_outline_silver: oIconOutlineSilver,
-    O_outline_dark_navy: oIconDarkNavy,
-};
-
-const altMap = {
-    O: "O Icon",
-    X: "X Icon",
-};
-
-const getIcon = (type: piece, outline?: boolean, color?: colors) => {
-    if (outline && color) {
-        return iconMap[`${type}_outline_${color}`];
+const Icon = ({ icon }: { icon: piece }) => {
+    if (icon === "O") {
+        return <O />;
     }
 
-    if (color && !outline) {
-        return iconMap[`${type}_${color}`];
+    if (icon === "X") {
+        return <X />;
     }
 
-    if (!color && outline) {
-        return iconMap[`${type}_outline`];
-    }
-
-    return iconMap[type];
+    return null;
 };
+
+const O = () => (
+    <svg
+        viewBox="0 0 64 64"
+        width="100%"
+        height="100%"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+            fill="#F2B137"
+        />
+    </svg>
+);
+
+const X = () => (
+    <svg
+        viewBox="0 0 64 64"
+        width="100%"
+        height="100%"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+            fill="#31C3BD"
+            fill-rule="evenodd"
+        />
+    </svg>
+);
 
 const getDimensions = (size: sizes) => {
     switch (size) {
@@ -72,17 +64,17 @@ const getDimensions = (size: sizes) => {
     }
 };
 
-const GamePieceContainer = styled.img<{ size: sizes }>`
-    user-select: none;
-    max-width: ${(props) => getDimensions(props.size)};
-    max-height: ${(props) => getDimensions(props.size)};
+const IconContainer = styled.div<Props>`
+    max-width: ${({ size }) => getDimensions(size)};
+    max-height: ${({ size }) => getDimensions(size)};
 `;
 
 const GamePiece = ({ type, size, outline, color }: Props) => {
-    const icon = getIcon(type, outline, color);
-    const alt = altMap[type];
-
-    return <GamePieceContainer size={size} src={icon} alt={alt} />;
+    return (
+        <IconContainer size={size} type={type}>
+            <Icon icon={type} />
+        </IconContainer>
+    );
 };
 
 export default GamePiece;
