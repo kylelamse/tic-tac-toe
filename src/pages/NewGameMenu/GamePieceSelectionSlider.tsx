@@ -13,7 +13,10 @@ const Container = styled.div`
 
 const SliderPieceContainer = styled.div<SelectionContainerProps>`
     flex: 1;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     padding: 0.5rem 0;
     border-radius: 0.625em;
