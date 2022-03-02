@@ -73,6 +73,7 @@ const borderRadius = (size: sizes) => {
 type ButtonContainerProps = {
     color: colors;
     size: sizes;
+    onClick?: Function;
 };
 const ButtonContainer = styled.div<ButtonContainerProps>`
     ${(props) => backgroundColor(props.color, props.theme)};
@@ -93,11 +94,13 @@ type Props = {
     children: React.ReactNode | string;
     color: colors;
     size: sizes;
+    onClick?: () => void;
 };
 
-const Button = ({ children, color, size }: Props) => {
+const noop = () => {};
+const Button = ({ children, color, size, onClick = noop }: Props) => {
     return (
-        <ButtonContainer color={color} size={size}>
+        <ButtonContainer color={color} size={size} onClick={onClick}>
             <Typography variant="extrasmall" color="dark_navy">
                 {children}
             </Typography>
