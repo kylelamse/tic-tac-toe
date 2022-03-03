@@ -4,8 +4,12 @@ import globalStyles from "styles/globalStyles";
 import NewGameMenu from "pages/NewGameMenu/NewGameMenu";
 import Game from "pages/Game/Game";
 import styled from "@emotion/styled";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import Show from "components/Show";
+import page from "state/atoms/page";
+import CurrentPage from "pages/CurrentPage";
 
-const CurrentPage = styled.div`
+const Container = styled.div`
     max-width: ${({ theme }) => theme.content.standard};
     margin: 0 auto;
 
@@ -16,17 +20,16 @@ const CurrentPage = styled.div`
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <main>
-                <div className="current-page">
-                    <CurrentPage>
-                        <Global styles={globalStyles} />
-                        <Game />
-                        {/* <NewGameMenu /> */}
-                    </CurrentPage>
-                </div>
-            </main>
-        </ThemeProvider>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <main>
+                    <Global styles={globalStyles} />
+                    <Container>
+                        <CurrentPage />
+                    </Container>
+                </main>
+            </ThemeProvider>
+        </RecoilRoot>
     );
 }
 
