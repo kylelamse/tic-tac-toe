@@ -36,6 +36,8 @@ type player = "X" | "O";
 type content = player | "";
 type Props = {
     content: content;
+    x?: number;
+    y?: number;
 };
 
 const GamePiecePlace = ({ content }: Props) => {

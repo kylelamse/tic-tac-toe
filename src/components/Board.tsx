@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import { useRecoilValue } from "recoil";
+import gamePiecePlacement from "state/atoms/gamePiecePlacement";
+import board from "types/board";
 
 import GamePiecePlace from "./GamePiecePlace";
 import InfoTile from "./InfoTile";
@@ -31,9 +34,22 @@ const HeaderItem = styled.div<HeaderItemProps>`
     }
 `;
 
+const renderGamePieces = (pieces: board) => {
+    return pieces.reduce<any>((previousValue, currentValue) => {
+        return [
+            ...previousValue,
+            ...currentValue.map((content) => (
+                <GamePiecePlace content={content} />
+            )),
+        ];
+    }, []);
+};
+
 type Props = {};
 
 const Board = (props: Props) => {
+    const gamePieces = useRecoilValue(gamePiecePlacement);
+
     return (
         <BoardContainer>
             <HeaderItem justify="start">
@@ -45,15 +61,7 @@ const Board = (props: Props) => {
             <HeaderItem justify="end">
                 <RestartButton />
             </HeaderItem>
-            <GamePiecePlace content="" />
-            <GamePiecePlace content="X" />
-            <GamePiecePlace content="O" />
-            <GamePiecePlace content="X" />
-            <GamePiecePlace content="O" />
-            <GamePiecePlace content="X" />
-            <GamePiecePlace content="" />
-            <GamePiecePlace content="O" />
-            <GamePiecePlace content="X" />
+            {renderGamePieces(gamePieces)}
             <InfoTile label="X (P2)" value={14} color="light_blue" />
             <InfoTile label="Ties" value={14} color="silver" />
             <InfoTile label="O (P1)" value={11} color="light_yellow" />
