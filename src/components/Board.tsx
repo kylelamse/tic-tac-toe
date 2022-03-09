@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
 import { useRecoilValue } from "recoil";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
-import board from "types/board";
 
-import GamePiecePlace from "./GamePiecePlace";
 import GamePieces from "./GamePieces";
 import InfoTile from "./InfoTile";
 import Logo from "./Logo";
