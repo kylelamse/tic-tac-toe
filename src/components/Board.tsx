@@ -43,7 +43,7 @@ const renderGamePieces = (pieces: board) => {
                 <GamePiecePlace content={content} />
             )),
         ];
-    }, [] as ReactNode[]);
+    }, []);
 };
 
 type Props = {};
