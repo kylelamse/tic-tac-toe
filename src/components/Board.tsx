@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ReactNode } from "react";
 import { useRecoilValue } from "recoil";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 import board from "types/board";
@@ -35,14 +36,14 @@ const HeaderItem = styled.div<HeaderItemProps>`
 `;
 
 const renderGamePieces = (pieces: board) => {
-    return pieces.reduce<any>((previousValue, currentValue) => {
+    return pieces.reduce<ReactNode[]>((previousValue, currentValue) => {
         return [
             ...previousValue,
             ...currentValue.map((content) => (
                 <GamePiecePlace content={content} />
             )),
         ];
-    }, []);
+    }, [] as ReactNode[]);
 };
 
 type Props = {};
