@@ -35,15 +35,19 @@ const HeaderItem = styled.div<HeaderItemProps>`
     }
 `;
 
-const renderGamePieces = (pieces: board) => {
-    return pieces.reduce<ReactNode[]>((previousValue, currentValue) => {
-        return [
-            ...previousValue,
-            ...currentValue.map((content) => (
-                <GamePiecePlace content={content} />
-            )),
-        ];
-    }, []);
+const GamePieces = ({ pieces }: { pieces: board }) => {
+    return (
+        <>
+            {pieces.reduce<ReactNode[]>((previousValue, currentValue) => {
+                return [
+                    ...previousValue,
+                    ...currentValue.map((content) => (
+                        <GamePiecePlace content={content} />
+                    )),
+                ];
+            }, [])}
+        </>
+    );
 };
 
 type Props = {};
@@ -62,7 +66,7 @@ const Board = (props: Props) => {
             <HeaderItem justify="end">
                 <RestartButton />
             </HeaderItem>
-            {renderGamePieces(gamePieces)}
+            <GamePieces pieces={gamePieces} />
             <InfoTile label="X (P2)" value={14} color="light_blue" />
             <InfoTile label="Ties" value={14} color="silver" />
             <InfoTile label="O (P1)" value={11} color="light_yellow" />
