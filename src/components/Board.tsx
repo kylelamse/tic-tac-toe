@@ -5,6 +5,7 @@ import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 import board from "types/board";
 
 import GamePiecePlace from "./GamePiecePlace";
+import GamePieces from "./GamePieces";
 import InfoTile from "./InfoTile";
 import Logo from "./Logo";
 import RestartButton from "./RestartButton";
@@ -34,21 +35,6 @@ const HeaderItem = styled.div<HeaderItemProps>`
         display: none;
     }
 `;
-
-const GamePieces = ({ pieces }: { pieces: board }) => {
-    return (
-        <>
-            {pieces.reduce<ReactNode[]>((previousValue, currentValue) => {
-                return [
-                    ...previousValue,
-                    ...currentValue.map((content) => (
-                        <GamePiecePlace content={content} />
-                    )),
-                ];
-            }, [])}
-        </>
-    );
-};
 
 type Props = {};
 
