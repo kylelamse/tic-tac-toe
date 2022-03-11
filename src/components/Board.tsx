@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
+import currentPlayer from "state/atoms/currentPlayer";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 
 import GamePieces from "./GamePieces";
@@ -37,6 +38,7 @@ type Props = {};
 
 const Board = (props: Props) => {
     const gamePieces = useRecoilValue(gamePiecePlacement);
+    const player = useRecoilValue(currentPlayer);
 
     return (
         <BoardContainer>
@@ -44,7 +46,7 @@ const Board = (props: Props) => {
                 <Logo />
             </HeaderItem>
             <HeaderItem>
-                <TurnStatus currentPlayer="X" />
+                <TurnStatus currentPlayer={player} />
             </HeaderItem>
             <HeaderItem justify="end">
                 <RestartButton />
