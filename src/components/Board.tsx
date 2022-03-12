@@ -3,7 +3,10 @@ import { useRecoilValue } from "recoil";
 import currentPlayer from "state/atoms/currentPlayer";
 import gameMode from "state/atoms/gameMode";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
+import oWinState from "state/atoms/oWinState";
 import playerOneState from "state/atoms/playerOneState";
+import tieState from "state/atoms/tieState";
+import xWinState from "state/atoms/xWinState";
 import gameModes from "types/gameModes";
 import players from "types/players";
 
@@ -85,6 +88,9 @@ const Board = (props: Props) => {
     const player = useRecoilValue(currentPlayer);
     const playerOne = useRecoilValue(playerOneState);
     const mode = useRecoilValue(gameMode);
+    const oWinCount = useRecoilValue(oWinState);
+    const xWinCount = useRecoilValue(xWinState);
+    const tieCount = useRecoilValue(tieState);
 
     return (
         <BoardContainer>
@@ -100,13 +106,13 @@ const Board = (props: Props) => {
             <GamePieces pieces={gamePieces} />
             <InfoTile
                 label={getXLabel(playerOne, mode)}
-                value={14}
+                value={xWinCount}
                 color="light_blue"
             />
-            <InfoTile label="Ties" value={14} color="silver" />
+            <InfoTile label="Ties" value={tieCount} color="silver" />
             <InfoTile
                 label={getOLabel(playerOne, mode)}
-                value={11}
+                value={oWinCount}
                 color="light_yellow"
             />
         </BoardContainer>

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import useNavigateHome from "hooks/useNavigateHome";
-import useResetGame from "hooks/useResetGame";
+import useResetBoard from "hooks/useResetBoard";
 import { useRecoilValue } from "recoil";
 import playerOneState from "state/atoms/playerOneState";
 import players from "types/players";
@@ -30,7 +30,7 @@ const getVerbiage = (playerOne: players, winner: players) => {
 
 const GameOver = ({ winner }: Props) => {
     const playerOne = useRecoilValue(playerOneState);
-    const resetGame = useResetGame();
+    const resetGame = useResetBoard();
     const navigateHome = useNavigateHome();
 
     return (

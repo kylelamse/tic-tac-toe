@@ -3,7 +3,7 @@ import { useResetRecoilState } from "recoil";
 import currentPlayer from "state/atoms/currentPlayer";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 
-const useResetGame = () => {
+const useResetBoard = () => {
     const resetBoard = useResetRecoilState(gamePiecePlacement);
     const resetCurrentPlayer = useResetRecoilState(currentPlayer);
 
@@ -15,4 +15,4 @@ const useResetGame = () => {
     return resetGame;
 };
 
-export default useResetGame;
+export default useResetBoard;

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import useResetGame from "hooks/useResetGame";
+import useResetBoard from "hooks/useResetBoard";
 import { useCallback } from "react";
 import { useSetRecoilState } from "recoil";
 import restartMenuState from "state/atoms/restartMenuState";
