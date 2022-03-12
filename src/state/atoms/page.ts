@@ -3,7 +3,7 @@ import { atom } from "recoil";
 
 const page = atom<pages>({
     key: "page",
-    default: "game",
+    default: "new-game",
 });
 
 export default page;
