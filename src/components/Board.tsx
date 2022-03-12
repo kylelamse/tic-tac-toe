@@ -104,7 +104,11 @@ const Board = (props: Props) => {
                 color="light_blue"
             />
             <InfoTile label="Ties" value={14} color="silver" />
-            <InfoTile label="O (P1)" value={11} color="light_yellow" />
+            <InfoTile
+                label={getOLabel(playerOne, mode)}
+                value={11}
+                color="light_yellow"
+            />
         </BoardContainer>
     );
 };
