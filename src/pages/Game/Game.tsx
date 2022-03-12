@@ -14,6 +14,7 @@ import players from "types/players";
 import restartMenuState from "state/atoms/restartMenuState";
 import oWinState from "state/atoms/oWinState";
 import xWinState from "state/atoms/xWinState";
+import tieState from "state/atoms/tieState";
 
 const Container = styled.div`
     margin-top: 1.5em;
@@ -29,6 +30,7 @@ const Game = (props: Props) => {
     const status = useMemo(() => calculateGameStatus(gamePieces), [gamePieces]);
     const setOWinCount = useSetRecoilState(oWinState);
     const setXWinCount = useSetRecoilState(xWinState);
+    const setTieCount = useSetRecoilState(tieState);
     const isRestartMenuOpen = useRecoilValue(restartMenuState);
 
     useEffect(() => {
@@ -39,7 +41,11 @@ const Game = (props: Props) => {
         if (status === "X") {
             setXWinCount((count) => count + 1);
         }
-    }, [status, setOWinCount, setXWinCount]);
+
+        if (status === "tie") {
+            setTieCount((count) => count + 1);
+        }
+    }, [status, setOWinCount, setXWinCount, setTieCount]);
 
     return (
         <Container>

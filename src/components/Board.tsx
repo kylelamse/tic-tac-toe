@@ -5,6 +5,7 @@ import gameMode from "state/atoms/gameMode";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 import oWinState from "state/atoms/oWinState";
 import playerOneState from "state/atoms/playerOneState";
+import tieState from "state/atoms/tieState";
 import xWinState from "state/atoms/xWinState";
 import gameModes from "types/gameModes";
 import players from "types/players";
@@ -89,6 +90,7 @@ const Board = (props: Props) => {
     const mode = useRecoilValue(gameMode);
     const oWinCount = useRecoilValue(oWinState);
     const xWinCount = useRecoilValue(xWinState);
+    const tieCount = useRecoilValue(tieState);
 
     return (
         <BoardContainer>
@@ -107,7 +109,7 @@ const Board = (props: Props) => {
                 value={xWinCount}
                 color="light_blue"
             />
-            <InfoTile label="Ties" value={14} color="silver" />
+            <InfoTile label="Ties" value={tieCount} color="silver" />
             <InfoTile
                 label={getOLabel(playerOne, mode)}
                 value={oWinCount}
