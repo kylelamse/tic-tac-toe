@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import useNavigateHome from "hooks/useNavigateHome";
 import useResetGame from "hooks/useResetGame";
 import { useRecoilValue } from "recoil";
 import playerOneState from "state/atoms/playerOneState";
@@ -30,6 +31,7 @@ const getVerbiage = (playerOne: players, winner: players) => {
 const GameOver = ({ winner }: Props) => {
     const playerOne = useRecoilValue(playerOneState);
     const resetGame = useResetGame();
+    const navigateHome = useNavigateHome();
 
     return (
         <Modal>
@@ -40,7 +42,7 @@ const GameOver = ({ winner }: Props) => {
                 <Winner winner={winner} />
             </WinnerContainer>
             <ButtonContainer>
-                <Button color="silver" size="medium">
+                <Button color="silver" size="medium" onClick={navigateHome}>
                     Quit
                 </Button>
                 <Button color="light_yellow" size="medium" onClick={resetGame}>

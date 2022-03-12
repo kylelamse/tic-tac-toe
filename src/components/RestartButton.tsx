@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
 import useResetGame from "hooks/useResetGame";
+import { useCallback } from "react";
+import { useSetRecoilState } from "recoil";
+import restartMenuState from "state/atoms/restartMenuState";
 import RestartIcon from "./RestartIcon";
 
 type ContainerProps = {
@@ -28,10 +31,14 @@ const Container = styled.div<ContainerProps>`
 type Props = {};
 
 const RestartButton = (props: Props) => {
-    const resetGame = useResetGame();
+    const setRestartMenu = useSetRecoilState(restartMenuState);
+
+    const openRestartMenu = useCallback(() => {
+        setRestartMenu(true);
+    }, [setRestartMenu]);
 
     return (
-        <Container onClick={resetGame}>
+        <Container onClick={openRestartMenu}>
             <RestartIcon />
         </Container>
     );

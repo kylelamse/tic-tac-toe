@@ -11,6 +11,7 @@ import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 import calculateGameStatus from "util/calculateGameStatus";
 import Show from "components/Show";
 import players from "types/players";
+import restartMenuState from "state/atoms/restartMenuState";
 
 const Container = styled.div`
     margin-top: 1.5em;
@@ -24,6 +25,7 @@ type Props = {};
 const Game = (props: Props) => {
     const gamePieces = useRecoilValue(gamePiecePlacement);
     const status = useMemo(() => calculateGameStatus(gamePieces), [gamePieces]);
+    const isRestartMenuOpen = useRecoilValue(restartMenuState);
 
     return (
         <Container>
@@ -35,7 +37,9 @@ const Game = (props: Props) => {
             <Show show={status === "O" || status === "X"}>
                 <GameOver winner={status as players} />
             </Show>
-            {/* <RestartMenu /> */}
+            <Show show={isRestartMenuOpen}>
+                <RestartMenu />
+            </Show>
         </Container>
     );
 };

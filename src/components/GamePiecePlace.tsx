@@ -25,11 +25,13 @@ const getHoverStyles = (player: player) => `
         fill-opacity: 0;
     }   
 
-    &:hover, svg:hover {
-    cursor: pointer;
-    fill-opacity: 0;
-    stroke: ${colorMap[player]};
-    stroke-width: 2;
+    @media(hover: hover) {
+        &:hover, svg:hover {
+        cursor: pointer;
+        fill-opacity: 0;
+        stroke: ${colorMap[player]};
+        stroke-width: 2;
+    }
 }`;
 
 const colorMap = {
