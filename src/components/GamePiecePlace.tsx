@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import useBreakpoint from "hooks/useBreakpoint";
+import { useCallback } from "react";
 import theme from "styles/theme";
 import GamePiece from "./GamePiece";
 
@@ -41,14 +42,30 @@ type content = player | "";
 type Props = {
     content: content;
     hoverContent: player;
-    x?: number;
-    y?: number;
+    onPieceClick: (x: number, y: number) => void;
+    x: number;
+    y: number;
 };
 
-const GamePiecePlace = ({ content, hoverContent }: Props) => {
+const GamePiecePlace = ({
+    content,
+    hoverContent,
+    onPieceClick,
+    x,
+    y,
+}: Props) => {
     const isMobile = useBreakpoint({ max: theme.breakpoints.mobile });
+    const onClick = useCallback(() => {
+        if (content === "") {
+            onPieceClick(x, y);
+        }
+    }, [onPieceClick, content, x, y]);
     return (
-        <Container content={content} hoverContent={hoverContent}>
+        <Container
+            content={content}
+            hoverContent={hoverContent}
+            onClick={onClick}
+        >
             <GamePiece
                 size={isMobile ? "Large" : "ExtraLarge"}
                 type={content || hoverContent}
