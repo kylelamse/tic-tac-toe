@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import useNavigateHome from "hooks/useNavigateHome";
 import useResetBoard from "hooks/useResetBoard";
 import { useRecoilValue } from "recoil";
+import gameMode from "state/atoms/gameMode";
 import playerOneState from "state/atoms/playerOneState";
+import gameModes from "types/gameModes";
 import players from "types/players";
 import Button from "../Button";
 import Typograpy from "../Typography";
@@ -18,25 +20,36 @@ type Props = {
     winner: players;
 };
 
-const getVerbiage = (playerOne: players, winner: players) => {
-    if (playerOne === winner) {
+const getVerbiage = (playerOne: players, winner: players, mode: gameModes) => {
+    if (playerOne === winner && mode === "cpu") {
         return "You won!";
     }
 
-    if (playerOne !== winner) {
+    if (playerOne !== winner && mode === "cpu") {
         return "Oh no, you lost...";
     }
+
+    if (playerOne === winner && mode === "player") {
+        return "Player 1 wins!";
+    }
+
+    if (playerOne !== winner && mode === "player") {
+        return "Player 2 wins!";
+    }
+
+    return "";
 };
 
 const GameOver = ({ winner }: Props) => {
     const playerOne = useRecoilValue(playerOneState);
+    const mode = useRecoilValue(gameMode);
     const resetGame = useResetBoard();
     const navigateHome = useNavigateHome();
 
     return (
         <Modal>
             <Typograpy variant="body" alignment="centered">
-                {getVerbiage(playerOne, winner)}
+                {getVerbiage(playerOne, winner, mode)}
             </Typograpy>
             <WinnerContainer>
                 <Winner winner={winner} />
