@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
-import { useCallback } from "react";
-import { useSetRecoilState } from "recoil";
-import gamePiecePlacement from "state/atoms/gamePiecePlacement";
+import useResetGame from "hooks/useResetGame";
 import RestartIcon from "./RestartIcon";
 
 type ContainerProps = {
@@ -30,18 +28,10 @@ const Container = styled.div<ContainerProps>`
 type Props = {};
 
 const RestartButton = (props: Props) => {
-    const setBoard = useSetRecoilState(gamePiecePlacement);
-
-    const onClick = useCallback(() => {
-        setBoard([
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
-        ]);
-    }, []);
+    const resetGame = useResetGame();
 
     return (
-        <Container onClick={onClick}>
+        <Container onClick={resetGame}>
             <RestartIcon />
         </Container>
     );
