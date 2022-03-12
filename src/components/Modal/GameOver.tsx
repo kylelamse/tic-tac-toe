@@ -1,4 +1,8 @@
 import styled from "@emotion/styled";
+import useResetGame from "hooks/useResetGame";
+import { useRecoilValue } from "recoil";
+import playerOneState from "state/atoms/playerOneState";
+import players from "types/players";
 import Button from "../Button";
 import Typograpy from "../Typography";
 import Winner from "../Winner";
@@ -9,22 +13,37 @@ const WinnerContainer = styled.div`
     margin: 1em 0 1.5em 0;
 `;
 
-type Props = {};
+type Props = {
+    winner: players;
+};
 
-const GameOver = (props: Props) => {
+const getVerbiage = (playerOne: players, winner: players) => {
+    if (playerOne === winner) {
+        return "You won!";
+    }
+
+    if (playerOne !== winner) {
+        return "Oh no, you lost...";
+    }
+};
+
+const GameOver = ({ winner }: Props) => {
+    const playerOne = useRecoilValue(playerOneState);
+    const resetGame = useResetGame();
+
     return (
         <Modal>
             <Typograpy variant="body" alignment="centered">
-                Oh no, you lost...
+                {getVerbiage(playerOne, winner)}
             </Typograpy>
             <WinnerContainer>
-                <Winner winner="X" />
+                <Winner winner={winner} />
             </WinnerContainer>
             <ButtonContainer>
                 <Button color="silver" size="medium">
                     Quit
                 </Button>
-                <Button color="light_yellow" size="medium">
+                <Button color="light_yellow" size="medium" onClick={resetGame}>
                     Next Round
                 </Button>
             </ButtonContainer>

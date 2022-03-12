@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import GamePiece from "components/GamePiece";
-import selectedPlayer from "state/atoms/selectedPlayer";
+import playerOneState from "state/atoms/playerOneState";
 import { useCallback } from "react";
 
 const Container = styled.div`
@@ -61,7 +61,7 @@ type player = "X" | "O";
 
 type Props = {};
 const GamePieceSelectionSlider = (props: Props) => {
-    const [selected, setSelected] = useRecoilState(selectedPlayer);
+    const [selected, setSelected] = useRecoilState(playerOneState);
 
     const selectX = useCallback(() => {
         setSelected("X");
