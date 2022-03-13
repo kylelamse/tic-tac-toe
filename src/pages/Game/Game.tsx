@@ -15,6 +15,7 @@ import restartMenuState from "state/atoms/restartMenuState";
 import oWinState from "state/atoms/oWinState";
 import xWinState from "state/atoms/xWinState";
 import tieState from "state/atoms/tieState";
+import useCpuAi from "hooks/useCpuAi";
 
 const Container = styled.div`
     margin-top: 1.5em;
@@ -46,6 +47,8 @@ const Game = (props: Props) => {
             setTieCount((count) => count + 1);
         }
     }, [status, setOWinCount, setXWinCount, setTieCount]);
+
+    useCpuAi();
 
     return (
         <Container>
