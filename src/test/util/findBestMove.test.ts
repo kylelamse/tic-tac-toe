@@ -1,12 +1,6 @@
 import board from "types/board";
 import findBestMove from "util/findBestMove";
 
-function printBoard(board: board) {
-    for (let i = 0; i < 3; i++) {
-        console.log(board[i]);
-    }
-}
-
 test("puts X in the first space if it is the first turn", () => {
     const currentBoard: board = [
         ["", "", ""],
@@ -22,7 +16,6 @@ test("puts X in the first space if it is the first turn", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -42,7 +35,6 @@ test("makes a winning move if possible", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -62,7 +54,6 @@ test("sets itself up for a vertically", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -82,7 +73,6 @@ test("sets itself up for a win diagonally", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -102,7 +92,6 @@ test("sets itself up for a win horizontally", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -122,7 +111,6 @@ test("blocks the opponent vertically", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -142,7 +130,6 @@ test("blocks the opponent horizontally", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
@@ -162,7 +149,6 @@ test("blocks the opponent diagonally", () => {
 
     const nextCoords = findBestMove(currentBoard, "X", "O");
     currentBoard[nextCoords.i][nextCoords.j] = "X";
-    console.log(printBoard(currentBoard));
 
     expect(currentBoard).toEqual(expected);
 });
