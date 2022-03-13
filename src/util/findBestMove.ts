@@ -11,8 +11,7 @@ function minimax(
     depth: number,
     isMaximizer: boolean,
     currentPlayer: players,
-    opponent: players,
-    debug: boolean
+    opponent: players
 ) {
     if (calculateGameStatus(board) === currentPlayer) {
         return WIN;
@@ -32,9 +31,6 @@ function minimax(
             for (let j = 0; j < 3; j++) {
                 if (board[i][j] === "") {
                     board[i][j] = currentPlayer;
-                    if (debug) {
-                        console.log(printBoard(board));
-                    }
 
                     best = Math.max(
                         best,
@@ -43,8 +39,7 @@ function minimax(
                             depth + 1,
                             false,
                             currentPlayer,
-                            opponent,
-                            debug
+                            opponent
                         ) - depth
                     );
 
@@ -62,9 +57,6 @@ function minimax(
             for (let j = 0; j < 3; j++) {
                 if (board[i][j] === "") {
                     board[i][j] = opponent;
-                    if (debug) {
-                        console.log(printBoard(board));
-                    }
 
                     worst = Math.min(
                         worst,
@@ -73,8 +65,7 @@ function minimax(
                             depth + 1,
                             true,
                             currentPlayer,
-                            opponent,
-                            debug
+                            opponent
                         ) + depth
                     );
 
@@ -88,12 +79,7 @@ function minimax(
     return TIE;
 }
 
-function findBestMove(
-    board: board,
-    player: players,
-    opponent: players,
-    debug: boolean
-) {
+function findBestMove(board: board, player: players, opponent: players) {
     let bestMove = Number.NEGATIVE_INFINITY;
     let coords: { i: number; j: number } = { j: -1, i: -1 };
 
@@ -101,12 +87,9 @@ function findBestMove(
         for (let j = 0; j < 3; j++) {
             if (board[i][j] === "") {
                 board[i][j] = player;
-                const move = minimax(board, 0, false, player, opponent, debug);
+                const move = minimax(board, 0, false, player, opponent);
 
                 if (move > bestMove) {
-                    if (debug) {
-                        console.log(printBoard(board));
-                    }
                     bestMove = move;
                     coords.i = i;
                     coords.j = j;
@@ -119,21 +102,5 @@ function findBestMove(
 
     return coords;
 }
-
-function printBoard(board: board) {
-    for (let i = 0; i < 3; i++) {
-        console.log(board[i]);
-    }
-}
-
-let currentBoard: board = [
-    ["X", "O", "X"],
-    ["O", "", "X"],
-    ["", "O", ""],
-];
-
-let nextCoords = findBestMove(currentBoard, "X", "O", false);
-currentBoard[nextCoords.i][nextCoords.j] = "X";
-console.log(printBoard(currentBoard));
 
 export default findBestMove;
