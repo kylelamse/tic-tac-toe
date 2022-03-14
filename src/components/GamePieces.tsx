@@ -1,5 +1,6 @@
+import useWinningTuples from "hooks/useWinningTuples";
 import { ReactNode, useCallback } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import currentPlayer from "state/atoms/currentPlayer";
 import gamePiecePlacement from "state/atoms/gamePiecePlacement";
 import board from "types/board";
@@ -25,6 +26,7 @@ const replaceItemAtIndex = (
 const GamePieces = ({ pieces }: { pieces: board }) => {
     const [player, setPlayer] = useRecoilState(currentPlayer);
     const setGamePieces = useSetRecoilState(gamePiecePlacement);
+    const winningTuples = useWinningTuples();
 
     const onPieceClick = useCallback(
         (x: number, y: number) => {
@@ -56,6 +58,9 @@ const GamePieces = ({ pieces }: { pieces: board }) => {
                             onPieceClick={onPieceClick}
                             x={x}
                             y={y}
+                            winningPlace={winningTuples?.some(
+                                (row) => row[0] === x && row[1] === y
+                            )}
                         />
                     )),
                 ];
