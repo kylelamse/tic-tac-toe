@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 import GamePiece from "components/GamePiece";
 import playerOneState from "state/atoms/playerOneState";

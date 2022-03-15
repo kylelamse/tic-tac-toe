@@ -1,12 +1,8 @@
 import { ThemeProvider, Global } from "@emotion/react";
 import theme from "styles/theme";
 import globalStyles from "styles/globalStyles";
-import NewGameMenu from "pages/NewGameMenu/NewGameMenu";
-import Game from "pages/Game/Game";
 import styled from "@emotion/styled";
-import { RecoilRoot, useRecoilValue } from "recoil";
-import Show from "components/Show";
-import page from "state/atoms/page";
+import { RecoilRoot } from "recoil";
 import CurrentPage from "pages/CurrentPage";
 
 const Container = styled.div`
