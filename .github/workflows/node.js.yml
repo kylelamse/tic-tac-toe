@@ -25,6 +25,7 @@ jobs:
             - run: rm -rf node_modules && yarn install --immutable
             - run: yarn test
             - run: yarn run build
+            - name: Deploy to pages
               if: github.ref == 'refs/heads/master'
             - run: |
                 git config --global user.name $user_name
